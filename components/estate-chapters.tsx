@@ -5,8 +5,8 @@ const chapters = [
     title: "the balcony",
     place: "Kakkanad, Kochi",
     coords: ["10.0088° N", "76.3330° E"],
-    image: "/photos/balcony.webp",
-    alt: "Curved balcony at Rain Homestay looking into the trees",
+    image: "/content-hero.webp",
+    alt: "Rain Homestay at night in the rain, the courtyard wet and the rooms lit",
     text: "A curved white balcony above the garden, open to the trees around the house.",
   },
   {

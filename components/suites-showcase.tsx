@@ -28,11 +28,11 @@ const rooms = [
   },
   {
     index: "04",
-    name: "Heritage Room",
-    bed: "King bed and daybed",
-    view: "Estate courtyard",
-    image: "/suite-master.webp",
-    alt: "The heritage family room",
+    name: "Teak bedroom",
+    bed: "Teak bed and side tables",
+    view: "Air conditioned",
+    image: "/photos/bedroom-teak-wide.webp",
+    alt: "The teak bedroom seen from the door",
   },
 ];
 

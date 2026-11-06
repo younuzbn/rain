@@ -46,11 +46,9 @@ export default function Home() {
       {/* 6. Dual-Speed Asymmetrical Vertical Parallax Archive */}
       <AsymmetricGallery />
 
-      {/* 7. Strategic Location Radar & Interactive Map */}
-      <LocationRadar />
-
-      {/* 8. Reservation Call to Action */}
+      {/* 7. Reservation, then the location */}
       <BookInvite />
+      <LocationRadar />
     </main>
   );
 }

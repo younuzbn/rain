@@ -23,7 +23,7 @@ const spaces = [
     index: "02",
     title: "Rain court",
     text: "Open to the sky at the centre of the house.",
-    image: "/courtyard-rain.webp",
+    image: "/photos/balcony-hall.webp",
     href: "/#verandah",
   },
   {

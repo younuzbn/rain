@@ -21,13 +21,25 @@ export function Nav() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
   const lastScroll = useRef(0);
+
+  const syncPastHero = () => {
+    if (pathname !== "/") {
+      setPastHero(true);
+      return;
+    }
+    const hero = document.getElementById("top");
+    const next = hero ? hero.getBoundingClientRect().bottom <= 88 : false;
+    setPastHero((prev) => (prev === next ? prev : next));
+  };
 
   useLenis((instance) => {
     const current = instance.scroll;
     const delta = current - lastScroll.current;
     lastScroll.current = current;
     setScrolled(current > 20);
+    syncPastHero();
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (pathname === "/book" || open || reduce || current < 12) {
@@ -54,6 +66,10 @@ export function Nav() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
+  useEffect(() => {
+    syncPastHero();
+  }, [pathname]);
+
   if (pathname === "/book") {
     return (
       <header className="book-bar">
@@ -76,7 +92,7 @@ export function Nav() {
 
   return (
     <>
-      <header className={`luxury-nav ${scrolled ? "is-scrolled" : ""} ${hidden && !open ? "is-hidden" : ""} ${pathname !== "/" ? "is-solid" : ""}`}>
+      <header className={`luxury-nav ${scrolled ? "is-scrolled" : ""} ${hidden && !open ? "is-hidden" : ""} ${pathname !== "/" || pastHero ? "is-solid" : ""}`}>
         <Link className="luxury-logo" href="/" onClick={() => setOpen(false)}>
           <Image
             src="/logo.webp"
